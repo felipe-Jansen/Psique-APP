@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>registro</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <form padding [formGroup]="loginForm" (ngSubmit)="registrar()" novalidate>
+
+      <ion-item>
+        <ion-input placeholder="Informe seu nome completo: "
+        [(ngModel)] = "nome"
+        formControlName="nome"
+        name="nome">
+        clearInput clearOnEdit="false"></ion-input>
+        <h6 *ngIf="erroNome" class="error"> {{ messageNome }}</h6>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="usuario"
+        formControlName="usuario"
+        placeholder="Informe seu nome de usuário: "
+        [(ngModel)] = "usuario"
+        name="usuario"
+        clearInput clearOnEdit="false"></ion-input>
+        <h6 *ngIf="erroUsuario" class="error"> {{ messageUsuario }}</h6>
+      </ion-item>
+
+      <ion-item>
+        <ion-input placeholder="Informe sua senha: "
+        [(ngModel)] = "senha"
+        formControlName="senha"
+        type="password"
+        name="senha">
+        clearInput clearOnEdit="false"></ion-input>
+        <h6 *ngIf="erroSenha" class="error"> {{ messageSenha }}</h6>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="padding-left: 5px">Eu sou: </ion-label>
+      <ion-select>
+        <ion-option value="paciente">Paciente</ion-option>
+        <ion-option value="medico">Médico</ion-option>
+      </ion-select>
+    </ion-item>
+
+      <!--<ion-item>
+          <ion-input placeholder="Repetir senha: " [(ngModel)] = "repeteSenha" type="password" name="usuario"></ion-input>
+      </ion-item>-->
+
+      <button ion-button full color="blue" class="login-button">Cadastrar-se</button>
+    </form>
+    <!--<button ion-button full color="blue" class="login-button" (click)="postData()">Teste Post</button>-->
+</ion-content>

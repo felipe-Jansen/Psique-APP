@@ -1,0 +1,34 @@
+<ion-content padding center text-center>
+  <ion-title>
+    <img class="imgUsuario" src="../assets/imgs/logo.jpeg">
+  </ion-title>
+
+  <form padding [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+
+      <ion-item>
+        <ion-input placeholder="Digite seu Usuário: "
+        [(ngModel)] = "usuario"
+        formControlName="usuario"
+        name="usuario">
+        clearInput clearOnEdit="false"></ion-input>
+        <h6 *ngIf="erroUsuario" class="error"> {{ messageNome }}</h6>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="senha"
+        type="password"
+        formControlName="senha"
+        placeholder="Digite sua Senha: "
+        [(ngModel)] = "senha"
+        name="senha"
+        clearInput clearOnEdit="false"></ion-input>
+        <h6 *ngIf="erroSenha" class="error"> {{ messageUsuario }}</h6>
+      </ion-item>
+
+      <button ion-button full class="login-button">Entrar</button>
+    </form>
+    <button class="registrar" ion-button full (click)="registrar()">Registrar-se</button>
+    <button class="registrarRede" ion-button full (click)="registrarFacebook()">Acessar com Google</button>
+    <button class="registrarRede" ion-button full (click)="registrarFacebook()">Acessar com Facebook</button>
+
+</ion-content>

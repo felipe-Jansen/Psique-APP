@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>PiscSist</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!--<button ion-button full (click)="requisicao()">TESTE REQUISIÇÃO</button>-->
+  <h3>Últimos Registros</h3>
+
+  <p *ngFor="let dados of result">
+    {{ dados.nome }}
+    <br/>
+  </p>
+  <p *ngFor="let humor of listaHumor">
+      <button class="humor" ion-button icon-start full (click)="alertaHumor(humor)">
+          <ion-icon [name]="humor.icone" item-start></ion-icon>
+          {{ humor.descricao }}
+      </button>
+      <br/>
+  </p>
+      <ion-fab bottom right >
+        <button ion-fab><ion-icon name="md-add"></ion-icon></button>
+        <ion-fab-list side="top">
+          <button ion-fab (click)="novaAtividade()"><ion-icon name="ios-american-football"></ion-icon></button>
+          <button ion-fab (click)="gotoDicas()"><ion-icon name="ios-bulb"></ion-icon></button>
+        </ion-fab-list>
+      </ion-fab>
+      <ion-fab bottom left >
+        <button ion-fab (click)="paginaGrafico()"><ion-icon name="analytics"></ion-icon></button>
+      </ion-fab>
+</ion-content>

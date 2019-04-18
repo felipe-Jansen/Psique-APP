@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Minhas Atividades</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+  <p *ngFor="let minhasAtividades of listaMinhasAtividades" class="minhaAtividade">
+    <ion-icon [name]="minhasAtividades.icone" item-start class="logoAtividade"></ion-icon>
+    <ion-label class="labelMinhaAtividade">{{ minhasAtividades.descricao }}</ion-label>
+    <ion-icon name="md-create" item-start class="logoAtividade logoAtividadeEditar" (click)="editaDado(minhasAtividades)"></ion-icon>
+    <ion-icon name="md-trash" item-start class="logoAtividade logoAtividadeExcluir"></ion-icon>
+    <br/>
+  </p>
+
+<form padding [formGroup]="formAtividade" (ngSubmit)="adicionarMedico()" novalidate>
+
+   <ion-item>
+      <ion-input placeholder="Informe a descricao da atividade: "
+      [(ngModel)] = "descricao"
+      formControlName="descricao"
+      name="descricao">
+      clearInput clearOnEdit="false"></ion-input>
+      <h6 *ngIf="erroDescricao" class="error"> {{ messageDescricao }}</h6>
+    </ion-item>
+
+      <ion-item>
+        <ion-label style="padding-left: 5px">Tipo da atividade: </ion-label>
+        <ion-select
+        [(ngModel)] = "atividadeEscolhida"
+        formControlName="tipo"
+        formControlName="tipo"
+        [(ngModel)] = "tipo"
+        name="tipo">
+          <ion-option value="ios-bicycle">Pedalar</ion-option>
+          <ion-option value="ios-heart">Namorar</ion-option>
+          <ion-option value="ios-cash">Comprar</ion-option>
+          <ion-option value="md-create">Escrever</ion-option>
+          <ion-option value="ios-car">Dirigir</ion-option>
+          <ion-option value="logo-playstation">Jogar</ion-option>
+          <ion-option value="ios-pizza">Comer</ion-option>
+          <ion-option value="ios-construct">Trabalhar</ion-option>
+          <ion-option value="ios-desktop">Assistir</ion-option>
+          <ion-option value="ios-plane">Viajar</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <button ion-button full color="blue" class="login-button">Cadastrar Atividade</button>
+    </form>
+</ion-content>

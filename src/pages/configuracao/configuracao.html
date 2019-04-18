@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Configurações</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Envio de relatório</ion-label>
+    <ion-toggle enabled checked="false"></ion-toggle>
+  </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-label>Frequência</ion-label>
+      <ion-select>
+        <ion-option value="diario">Diário</ion-option>
+        <ion-option value="semanal">Semanal</ion-option>
+        <ion-option value="mensal">Mensal</ion-option>
+        <ion-option value="anual">Anual</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+    <h2 class>Meus Médicos</h2>
+    <p *ngFor="let medicoLista of listaMedicos" class="dadoMedico">
+      <ion-label class="labelMedico">{{  medicoLista.email }} às {{ medicoLista.horario }}</ion-label>
+    </p>
+
+  <form padding [formGroup]="formMedico" (ngSubmit)="adicionarMedico()" novalidate>
+
+    <ion-item>
+      <ion-input placeholder="Digite o nome do médico: "
+      [(ngModel)] = "medico"
+      formControlName="medico"
+      name="medico">
+      clearInput clearOnEdit="false"></ion-input>
+      <h6 *ngIf="erroMedico" class="error"> {{ messageMedico }}</h6>
+    </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="hora"
+        formControlName="hora"
+        placeholder="Digite o Horário: "
+        [(ngModel)] = "hora"
+        name="hora"
+        clearInput clearOnEdit="true"></ion-input>
+        <h6 *ngIf="erroSenha" class="error"> {{ messageHora }}</h6>
+      </ion-item>
+
+      <button ion-button full color="blue" class="login-button">Cadastrar Médico</button>
+    </form>
+
+
+</ion-content>

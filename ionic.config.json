@@ -1,0 +1,7 @@
+{
+  "name": "codigoFonte",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

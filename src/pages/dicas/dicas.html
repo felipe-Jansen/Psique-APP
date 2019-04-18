@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dicas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <p *ngFor="let dica of dicas" class="boxDica">
+    <button (click)="displayDica(dica.id)" ion-button icon-start full class="boxDicaDescricao">
+        {{ dica.descricao }}
+    </button>
+    <span *ngIf="dica.mostrar" class="boxSobreDica">
+      {{ dica.sobre }}
+      <br/><button (click)="detalheDica()" ion-button color="light" full>
+        Saiba Mais
+      </button>
+    </span>
+  </p>
+
+  <ion-fab bottom right >
+    <button ion-fab><ion-icon name="md-add"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-fab bottom left >
+    <button ion-fab (click)="paginaGrafico()"><ion-icon name="analytics"></ion-icon></button>
+  </ion-fab>
+</ion-content>

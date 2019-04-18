@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Atividades</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+    <p *ngFor="let atividades of listaAtividade">
+        <button class="atividades" ion-button icon-start full>
+            <ion-icon [name]="atividades.icone" item-start></ion-icon>
+            {{ atividades.descricao }}
+        </button>
+    </p>
+    <ion-fab bottom right >
+        <button ion-fab (click)="novaAtividade()"><ion-icon name="md-add"></ion-icon></button>
+    </ion-fab>
+</ion-content>
